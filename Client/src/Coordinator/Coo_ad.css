@@ -1,0 +1,19 @@
+.submit_button{
+    background-color: #f7d738;
+    border-radius: 5px;
+    color: #800000;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    max-width: 92%;
+}
+
+.submit_button:hover{
+    transition: all;
+    background-color: #800000;
+    color: #f7d738;
+    transition: background-color 0.3s ease;
+}
+
+.input_ele{
+    max-width: 92%;
+}

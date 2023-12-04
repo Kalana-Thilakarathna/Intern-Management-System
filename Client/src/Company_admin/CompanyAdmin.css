@@ -1,0 +1,123 @@
+.table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    margin-top: 30px;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: auto;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    border-radius: 8px 8px 0 0;
+    overflow: hidden;
+    /* box-shadow: 0 0 20px rgb(20, 17, 17); */
+  }
+  .C1{
+    margin-bottom: 20px;
+    color:   #f7d738;
+  }
+
+  #C2{
+    margin-bottom: 20px;
+    color: #f7d738;
+  }
+
+  .tr{
+   background-color: #f7d738;
+    color: #000000;
+    text-align: left;
+    
+    font-weight: bold;
+    color: #000000;
+   
+  }
+  .table tr{
+    border-bottom: 0.5px solid #ffffff;
+    
+
+  }
+  .table tr:nth-of-type(){
+    background-color: #f8e067;
+    
+  }
+
+  .table tr:last-of-type{
+    border-bottom: 2px solid #000000;
+  }
+  
+  .th {
+    padding: 12px 15px;
+    background-color: #fafafa;
+    color: #6e0d0d;
+    text-align: left;
+
+
+  }
+  
+  .td {
+    padding: 12px 15px;
+    text-align: center;
+  }
+  tr:hover {
+    background-color: #fae88f;
+    cursor: pointer;
+  }
+
+  .B10{
+    background-color: #f7d738;
+    color: #800000;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 6px;
+    padding-right: 6px;
+    border-radius: 8px;
+    box-shadow: #000000;
+    border-color: #000000;
+    border-width: 2px;
+    transition: background-color 0.3s ease;
+  }
+  .B10:hover{
+    transition:all;
+    background-color: #800000;
+    color: #f7d738;
+    transition: background-color 0.3s ease;
+  }
+
+  .B11{
+    background-color: #f7d738;
+    color: #800000;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 6px;
+    padding-right: 6px;
+    border-radius: 8px;
+    box-shadow: #000000;
+    border-color: #000000;
+    border-width: 2px;
+    transition: background-color 0.3s ease;
+  }
+  .B11:hover{
+    transition:all;
+    background-color: #800000;
+    color: #f7d738;
+    transition: background-color 0.3s ease;
+  }
+
+  .B12{
+    background-color: #f7d738;
+    color: #800000;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 6px;
+    padding-right: 6px;
+    border-radius: 8px;
+    box-shadow: #000000;
+    border-color: #000000;
+    border-width: 2px;
+    transition: background-color 0.3s ease;
+  }
+  .B12:hover{
+    transition:all;
+    background-color: #800000;
+    color: #f7d738;
+    transition: background-color 0.3s ease;
+  }
+  

@@ -1,0 +1,118 @@
+.mb-3 :hover,.mb-3 :active{
+    background-color: #f7d738 ;
+    border-radius: 5px;
+
+}
+.mb-3{
+    border-radius: 10px;
+    color: #fafafa;
+    
+}
+#cont{
+    height: 600px;
+    
+    
+}
+.cardb{
+    height: 200px;
+    width: 200px;
+}
+#inputjob{
+    width: 90%;
+    height: 25%;
+}
+
+.B1.btn{
+    margin-bottom: 20px;
+    box-shadow: 0 0 20px rgba(147, 6, 6, 0.15);
+    background-color: #f7d738;
+    color: #000000;
+    border-color: #000000;
+   
+
+}
+.B1.btn:hover{
+    background-color: #800000;
+    color: #ffffff;
+}
+.table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    text-align: center;
+    font-family: sans-serif;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    border-radius: 8px 8px 0 0;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgb(20, 17, 17);
+  }
+
+ .table tbody tr{
+   background-color: #f7d738;
+   color: #000000;
+   
+  }
+  .table tr{
+    border-bottom: 0.5px solid #ffffff;
+    
+
+  }
+  .table tr:nth-of-type(){
+    background-color: #f8e067;
+    
+  }
+
+  .table tr:last-of-type{
+    border-bottom: 2px solid #000000;
+  }
+  
+ .table thead th {
+    padding: 12px 15px;
+    background-color: #fafafa;
+    color: #6e0d0d;
+    text-align: center;
+    
+
+
+  }
+  
+  .table td {
+    padding: 12px 15px;
+    text-align: center;
+    
+  }
+  .tr:hover {
+    background-color: #fae88f;
+    cursor: pointer;
+  }
+
+  .B2.btn{
+    margin-bottom: 20px;
+    box-shadow: 0 0 20px rgba(147, 6, 6, 0.15);
+    background-color: #f7d738;
+    color: #000000;
+    border-color: #000000;
+   
+
+}
+.B2.btn:hover{
+    background-color: #800000;
+    color: #ffffff;
+}
+
+.B2.btn{
+  margin-bottom: 20px;
+  box-shadow: 0 0 20px rgba(147, 6, 6, 0.15);
+  background-color: #f7d738;
+  color: #000000;
+  border-color: #000000;
+ 
+
+}
+.B2.btn:hover{
+  background-color: #800000;
+  color: #ffffff;
+}
+
+

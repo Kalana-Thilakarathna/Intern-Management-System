@@ -1,0 +1,59 @@
+.background-card-b{
+    background-color: #800000;
+}
+
+.background-card-y{
+    background-color: #f7d738;
+}
+
+.bg-w{
+    background-color: aliceblue;
+}
+
+.text-title-sub{
+    font-weight: bold;
+    color: black;
+}
+
+.card-para{
+    font-size: medium;
+    text-align: center;
+}
+
+.fixed-height-card-summery {
+    height: 198px;
+    
+}
+
+.fixed_height_card{
+    height: 170px;
+}
+
+.centered{
+    display: flex;
+    justify-content: center;    
+}
+
+.textincard{
+    font-weight: bold;
+    color: aliceblue;
+}
+
+.textinmaincard{
+    font-weight: bold;
+    
+}
+
+.tabback{
+    background-color: #f7d738;
+    display: flex;
+    max-width: 100%;
+    border-radius: 10px 10px 0px 0px ;
+}
+
+/* .tabbodyback{
+    background-color: #f7d738;
+    display: flex;
+    max-width: 100%;
+    border-radius: 10px 10px 0px 0px ;
+} */

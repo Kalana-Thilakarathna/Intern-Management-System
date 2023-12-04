@@ -1,0 +1,114 @@
+.mb-3 :hover,.mb-3 :active{
+    background-color: #f9f9f9 ;
+}
+#cont{
+    height: 600px;
+    
+    
+}
+.cardb{
+    height: 200px;
+    width: 200px;
+}
+#inputjob{
+    width: 90%;
+    height: 25%;
+}
+
+.B1.btn{
+    margin-bottom: 20px;
+    box-shadow: 0 0 20px rgba(147, 6, 6, 0.15);
+    background-color: #f7d738;
+    color: #000000;
+   
+
+}
+.table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    text-align: center;
+    font-family: sans-serif;
+    width: 80%;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    border-radius: 8px 8px 0 0;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgb(20, 17, 17);
+  }
+
+  .tr{
+   background-color: #f7d738;
+    color: #000000;
+    text-align: left;
+    
+    font-weight: bold;
+    color: #000000;
+   
+  }
+  .table tr{
+    border-bottom: 0.5px solid #ffffff;
+    
+
+  }
+  .table tr:nth-of-type(){
+    background-color: #f8e067;
+    
+  }
+
+  .table tr:last-of-type{
+    border-bottom: 2px solid #000000;
+  }
+  
+  .table th {
+    padding: 12px 15px;
+    background-color: #fafafa;
+    color: #800000;
+    text-align: center;
+
+  }
+  
+  .table td {
+    padding: 12px 15px;
+    text-align: center;
+    
+  }
+  .tr:hover {
+    background-color: #fae88f;
+    cursor: pointer;
+  }
+
+  .table.B3,.B4{
+    color: #000000;
+  }
+  .B3,.B4,.B5{
+    background-color: #f7d738;
+    color: #800000;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 6px;
+    padding-right: 6px;
+    border-radius: 8px;
+    box-shadow: #000000;
+    border-color: #000000;
+    border-width: 2px;
+    transition: background-color 0.3s ease;
+  }
+  .B3:hover{
+    transition:all;
+    background-color: #800000;
+    color: #f7d738;
+    transition: background-color 0.3s ease;
+  }
+  .B4:hover{
+    background-color: #800000; 
+    color: #f7d738;
+    transition: background-color 0.3s ease;
+  }
+  .B5:hover{
+    background-color: #800000; 
+    color: #f7d738;
+    transition: background-color 0.3s ease;
+  }
+
+
+

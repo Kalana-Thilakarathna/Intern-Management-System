@@ -1,0 +1,107 @@
+.profile-image-container {
+    display: flex;
+    justify-content:flex-start;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .profile-image {
+    width: 100px; /* Adjust the size as needed */
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-right: 10px;
+    
+  }
+  
+  .remove-button {
+    background-color: #f7d738;
+    color: #800000;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 6px;
+    padding-right: 6px;
+    border-radius: 8px;
+    box-shadow: #000000;
+    border-color: #000000;
+    border-width: 2px;
+    transition: background-color 0.3s ease;
+    
+  }
+  .remove-button:hover{
+    background-color: #800000;
+    color: #f7d738;
+    transition: background-color 0.3s ease;
+  }
+
+  .FM{
+    width: fit-content;
+    
+  }
+  .mb-7 :hover{
+    background-color: #800000;
+  }
+  
+  .upload-label {
+    background-color: #f7d738;
+    color: #800000;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 6px;
+    padding-right: 6px;
+    border-radius: 8px;
+    box-shadow: #000000;
+    border-color: #000000;
+    border-width: 2px;
+    transition: background-color 0.3s ease;
+  }
+  .upload-label:hover{
+    background-color: #800000;
+    color: #f7d738;
+    transition: background-color 0.3s ease;
+  }
+  
+  /* Additional styling for form labels and controls */
+  
+  .mb-4 {
+    margin-top: 50px;
+    color: black; /* Adjust the spacing between label and control */
+  }
+  
+  .mb-5 {
+    max-width: 800px;
+    
+  }
+
+  #cont{
+    height: 622px;
+    background-color: #ffffff;
+  }
+  .mt-2{
+    
+    background-color: #f7d738;
+    color: #800000;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 6px;
+    padding-right: 6px;
+    border-radius: 8px;
+    box-shadow: #000000;
+    border-color: #000000;
+    border-width: 2px;
+    transition: background-color 0.3s ease;
+    margin-bottom: 5px;
+    margin-left: 4px;
+    width: 300px;
+  }
+  .mt-2:hover{
+    transition: all;
+    background-color: #800000;
+    color: #f7d738;
+    transition: background-color 0.3s ease;
+
+  }
+
+.mb-3{
+    background-color: #dbd9d9 ;
+}

@@ -1,0 +1,123 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+  }
+  body{
+    background-color: rgba(255, 255, 0, 0.1);
+    font-family: 'arial';
+  }
+  
+  button{
+    background-color: ;
+  }
+  
+  
+  
+  .header_line{
+    background-color: #800000;
+    height: 2.5rem;
+  }
+  .uni-logo{
+    width: 7.25rem;
+    height:auto;
+  }
+  .header_title,.header_subtitle{
+    font-size: 1.5rem;
+    color: #800000;
+    font-weight: bold;
+    margin-left: 1rem;
+  }
+  
+  .content-container{
+    margin: 0 auto;
+    margin-top:2.5rem;
+    
+    height:300px;
+    width:300px;
+  
+  }
+  .entryArea-1,.entryArea-2{
+    width:250px;
+    height:75px;
+    position:relative;
+    
+  }
+  
+  
+  form h1{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+  }
+  input{
+    height:45px;
+    width:15.625rem;
+    background:transparent;
+    position:absolute;
+    outline:none;
+    border: 2px solid #808B96;
+    border-radius:7px;
+    transition: 0.1s ease;
+    z-index: 111;
+    padding:5px;
+    
+  }
+  .input-Label{
+    position:absolute;
+    top:32%;
+    left:5%;
+    transition: 0.2s ease;
+    width:90px;
+    text-align: center;
+  }
+  
+  input:focus,
+  input:valid{
+    border: 3px solid #800000;
+    z-index:10;
+  }
+  
+  
+  
+  input:focus + .input-Label,
+  input:valid + .input-Label
+  
+  {
+    color:#800000;
+    transform:translateY(-90%) scale(0.9);
+    background-color: white;
+    z-index: 222;
+    
+  }
+  .submit_button{
+    margin-top: 25px;
+    padding: 6px 35px;
+    Background-color: #f7d738;
+    Border-radius:30px;
+  }
+  
+  .footer{
+  
+    background-color: #800000;
+    height: 2.5rem;
+    position:absolute;
+    bottom:0;
+    width:100%;
+  
+  }
+  .userName,.password{
+    margin-top: 15px;
+    padding:5px;
+    
+  }
+
+  .error-message {
+    color: red;
+    margin-top: 10px;
+  }
+
+  .formH{
+    height: 100%;
+  }
+  

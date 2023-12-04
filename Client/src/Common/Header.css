@@ -1,0 +1,71 @@
+.common-header{
+    width: 100%;
+    height: 150px;
+    background-color:#800000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+
+}
+.component-1{
+    display: flex;
+    gap: 10px;
+    width: 100%;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+}
+.component-2{
+    width: 100%;
+    
+}
+.header-logo{
+    width:50px;
+    height:auto;
+    border-radius:10px;
+}
+.header-uniname{
+    width:60px;
+    height:auto;
+}
+.header-title{
+    color: white;
+    font-size: 17px;
+    font-weight: bold;
+    text-align: center;
+}
+.header-border-right{
+    border-right: 3px solid white;
+    padding-right: 10px;
+}
+.header-user{
+    position:absolute;
+    right:0;
+    top:0;
+    width: 110px;
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    margin-right: 20px;
+    padding-top: 5px;
+    
+
+}
+
+
+
+.header-log-out{
+    
+    color:  #f7d738;
+    font-size: 20px;
+    border-bottom: 3px solid  #f7d738;
+  
+   
+}
+.header-user i{
+    font-size: 30px;
+    color:  #f7d738;
+    cursor: pointer;
+}

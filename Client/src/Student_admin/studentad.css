@@ -1,0 +1,39 @@
+.submit_button{
+    background-color: #f7d738;
+    border-radius: 5px;
+    color: #800000;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.submit_button:hover{
+    transition: all;
+    background-color: #800000;
+    color: #f7d738;
+    transition: background-color 0.3s ease;
+}
+
+.myinput{
+    width: 50%;
+}
+
+.custom-row {
+    height: 30px;
+    width: auto;
+  }
+
+  .center-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+  }
+
+  .background-card-b{
+    background-color: #800000;
+}
+
+.input_ele{
+    max-width: 92%;
+}

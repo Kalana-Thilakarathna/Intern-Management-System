@@ -1,0 +1,31 @@
+.CF{
+    background-color: #800000;
+    height: 8.5rem;
+    position:relatives;
+    
+    width:100%;
+
+}
+
+.footer-details{
+    text-align: center;
+    align-items: center;
+    color: #ffffff;
+    margin: 5px 0;
+}
+.social-icons{
+    display: flex;
+    align-items: center;
+    padding-left: 890px;
+    color: #ffffff;
+    padding-top: 8px;
+    transition: color 0.3s ease;
+    
+}
+.social-icons a:hover {
+    color: #ffe771; 
+    transition: color 0.3s ease;
+  }
+
+
+  
