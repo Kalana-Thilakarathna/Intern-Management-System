@@ -1,0 +1,31 @@
+.submit_button {
+  background-color: #f7d738;
+  border-radius: 100px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.submit_button:hover {
+  transition: all;
+  background-color: #800000;
+  color: #f7d738;
+  transition: background-color 0.3s ease;
+}
+
+
+.submit_red{
+    height: 37px;
+    width: 100px;
+    color: #800000;
+    background-color: #f7d738;
+    border-radius: 100px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+  }
+  
+  .submit_red:hover {
+    transition: all;
+    background-color: red;
+    color: #f7d738;
+    transition: background-color 0.3s ease;
+  }

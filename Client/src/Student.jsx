@@ -1,48 +1,54 @@
-import React from 'react'
-import { useNavigate } from 'react-router-dom'
-import './Student.css'
-import Header from './Common/Header'
-import Footer from './Common/Footer'
-
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import "./Student.css";
+import Header from "./Common/Header";
+import Footer from "./Common/Footer";
+import { Col, Container, Row } from "react-bootstrap";
+import Tab from "react-bootstrap/Tab";
+import Tabs from "react-bootstrap/Tabs";
+import Card from "react-bootstrap/Card";
+import Table from "react-bootstrap/Table";
+import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
+import Profile from "./Student/Profile";
+import Vacancies from "./Student/Vacancies";
 
 function Student() {
+  const navigate = useNavigate();
 
-  const navigate = useNavigate()
-
-  function HandleLogout(){
-    
-    navigate('/')
+  function HandleLogout() {
+    navigate("/");
   }
+
+  //12/5 -set tab navigation and root tab is profile
+  const [key, setKey] = useState("Profile");
+
   return (
-    <>
-    <Header/>
+    <div>
+      <Header />
+      <div>
+        <Container className="bg-red-800 p-3 my-20">
+          <Tabs
+            id="student-tab"
+            activeKey={key}
+            onSelect={(k) => {
+              setKey(k);
+            }}
+            className="tabback"
+          >
+            <Tab eventKey="Profile" title={<span style={{ color: '#800000', fontWeight: 'bold' }}>Profile</span>} className="bg-w">
+              <Profile />
+            </Tab>
+            <Tab eventKey="Vacavcies" title={<span style={{ color: '#800000', fontWeight: 'bold' }}>Vacancies</span>} className="bg-w">
+              <Vacancies />
+            </Tab>
+          </Tabs>
+        </Container>
+      </div>
 
-    <main className='student-body'>
-      <nav className='student-nav'>
-        <button >Home</button>
-        <button >Students</button>
-        <button>Companies</button>
-        <button>Cordinators</button>
-      </nav>
-      <section className='info-section'>
-        <div className='section-container'>
-          <div className='container-summery'>
-            <div className='container-summery-header'>
-              <h1>Summery</h1>
-            </div>
-            <div className='container-summery-body'></div>
-          </div>
-          <div className='container-admin-info'></div>
-
-        </div>
-      </section>
-    </main>
-    
-
-    <Footer/>
-    </>
-    
-  )
+      <Footer />
+    </div>
+  );
 }
 
-export default Student
+export default Student;
