@@ -11,9 +11,10 @@ import SingleCoordinator from "./Coordinator/coordinator/SingleCoordinator";
 
 function App() {
   return(
+    
     <BrowserRouter>
      
-
+ 
      <Routes>
             <Route path="/" element={<Loginpage/>} />
             <Route element = {<RequireAuth />}>
@@ -27,8 +28,12 @@ function App() {
             
   
        </Routes>
+       
     
     </BrowserRouter>
+    
+    
+   
    
 
   )
