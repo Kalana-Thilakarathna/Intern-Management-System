@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import './company.css';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import Footer from './Common/Footer';
 import Header from './Common/Header';
 import { Container } from 'react-bootstrap';
@@ -13,8 +13,12 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import CompanyCv from './Company/CompanyCv';
 import CompanyProfile from './Company/CompanyProfile';
+import RequireAuth from './requireAuth';
+import axios from 'axios';
 
 function Company() {
+  const {userName} = useParams();
+
   const navigate = useNavigate();
   const [jobs, setJobs] = useState([
     { id: 1, description: 'Intern Software Developer' },
@@ -26,15 +30,27 @@ function Company() {
     navigate('/');
   }
 
-  const handleAddJob = () => {
+  //Insert jobs to the database
+  async function insertJobsToDB(jobDescription) {
+    
+    try {
+      const response = await axios.post(`/company/${userName}`, {vacancies:jobDescription})
+    } catch (err) {
+      console.log(err)
+    }
+  }
+
+  const handleAddJob = async() => {
     const jobDescription = document.getElementById('inputjob').value;
     if (jobDescription) {
       const newJob = {
-        id: jobCounter,
+        id: jobs.length > 0 ? jobs[jobs.length - 1].id + 1 : 1,
         description: jobDescription,
       };
       setJobs([...jobs, newJob]);
       setJobCounter(jobCounter + 1);
+      await insertJobsToDB(jobDescription);
+      fetchData();
     }
   };
   const handleRemoveJob = () => {
@@ -42,11 +58,45 @@ function Company() {
       const updatedJobs = jobs.filter((job) => job.id !== selectedJob.id);
       setJobs(updatedJobs);
       setSelectedJob(null);
+      
     }
   };
   const handleJobSelection = (job) => {
     setSelectedJob(job);
   };
+
+  function handleAddJobFromResponse(jobFromRsponse) {
+
+    const newJobs = jobFromRsponse.map((job, index) => ({
+      id: index + 1, // Adjust the id based on your logic
+      description: job,
+    }));
+    
+    
+    setJobs(newJobs)
+   
+  }
+
+  //fetch data from the server to display the vacancies
+  const fetchData = async () => {
+
+    try{
+    const response  = await axios.get(`/company/${userName}`)
+    console.log(response.data.vacancies)
+    handleAddJobFromResponse(response.data.vacancies)
+    
+    }catch(err){
+      console.log(err)
+    }
+  }
+
+  useEffect(() => {
+
+    
+    fetchData();
+
+
+  }, []);
 
   return (
     <div>

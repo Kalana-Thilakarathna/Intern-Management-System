@@ -2,6 +2,7 @@ const express = require('express');
 const dotenv = require('dotenv').config();
 const mongoose = require('mongoose');
 const User = require('./userSchema');
+const Company = require('./Schemas/CompanySchema');
 const Cors = require('cors');
 const jwt = require('jsonwebtoken');
 const cookie = require('cookie');
@@ -37,7 +38,8 @@ async function connectDB() {
     try {
         const conn = await mongoose.connect(process.env.MONGO_URL, {
             useNewUrlParser: true,
-            useUnifiedTopology: true
+            useUnifiedTopology: true,
+            
         });
         console.log('MongoDB connected');
 
@@ -276,6 +278,48 @@ app.get('/admin/Students/:id',authenticateToken, async(req,res)=>{
         console.log(error);
     }
 });
+
+//endpoint to retrive vacancy details data for a company
+app.get('/company/:userName',authenticateToken, async(req,res)=>{
+    const name = req.params.userName;
+    try{
+        const company = await Company.findOne({userName:name});
+        if(!company){
+            res.status(404).send("Company Not Found");
+        }
+        res.send(company);
+        
+
+    }catch(error){
+        res.status(500).send("Internal Server Error")
+        console.log(error);
+    }
+});
+
+//endpoint to inser a new vacancy
+app.post('/company/:userName',authenticateToken, async(req,res)=>{
+    const name = req.params.userName;
+    const vacancy = req.body.vacancies;
+    try{
+        const company = await Company.findOne({userName:name});
+        if(!company){
+            res.status(404).send("Company Not Found");
+        }
+        company.vacancies.push(vacancy);
+        await company.save();
+        res.status(201).send("Vacancy Added Successfully");
+        
+
+    }catch(error){
+        res.status(500).send("Internal Server Error")
+        console.log(error);
+    }
+});
+
+
+
+
+
 
 
 

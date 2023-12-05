@@ -30,7 +30,7 @@ function Loginpage() {
       if (role === "student") {
         navigate("/student");
       } else if (role === "company") {
-        navigate("/company");
+        navigate(`/company/${userName}`);
       } else if (role === "admin") {
         navigate("/admin");
       } else {
