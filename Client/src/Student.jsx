@@ -10,8 +10,8 @@ import Card from "react-bootstrap/Card";
 import Table from "react-bootstrap/Table";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import Profile from "./Student/Profile";
-import Vacancies from "./Student/Vacancies";
+import Profile from "./Studentnew/Profile";
+import Vacancies from "./Studentnew/Vacancies";
 
 function Student() {
   const navigate = useNavigate();

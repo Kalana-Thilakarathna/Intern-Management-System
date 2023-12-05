@@ -9,6 +9,7 @@ import {
   Col,
 } from "react-bootstrap";
 import "./student.css";
+import { Link } from "react-router-dom";
 
 function Vacancies() {
   let maxPage = 10;
@@ -53,7 +54,11 @@ function Vacancies() {
                   {Vacancies.slice(minpagestate, maxpagestate)?.map(
                     (vacancie) => (
                       <ListGroup.Item key={vacancie.id}>
+                        {/*12/5 vacancie name should change to the company name or id as acording fake endpoint thing*/}
+                        <Link to = {`/student/company_vacancies/${vacancie.name}`}> 
                         {vacancie.name}
+                        </Link>
+                        
                       </ListGroup.Item>
                     )
                   )}
