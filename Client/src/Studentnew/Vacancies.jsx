@@ -12,6 +12,16 @@ import "./student.css";
 import { Link } from "react-router-dom";
 
 function Vacancies() {
+
+  // const [TotalVacancies, setTotalVacancies] = useState([
+
+  // ]);
+
+
+  
+
+  
+
   let maxPage = 10;
   let minPage = 0;
 
@@ -45,7 +55,7 @@ function Vacancies() {
       <Container>
         <Row>
           <Card>
-            <CardHeader className="bg-red-800 text-zinc-50 textinmaincard mt-3">
+            <CardHeader className="bg-red-800 text-zinc-50 textinmaincard my-3">
               Available Vacancies
             </CardHeader>
             <Card.Body>

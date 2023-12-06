@@ -27,11 +27,11 @@ function Loginpage() {
 
       setAuth({ userName, password, role, token });
 
-      if (role === "student") {
+      if (role === "Student") {
         navigate("/student");
-      } else if (role === "company") {
+      } else if (role === "Company") {
         navigate(`/company/${userName}`);
-      } else if (role === "admin") {
+      } else if (role === "Admin") {
         navigate("/admin");
       } else {
         // alert('Invalid username or password');
