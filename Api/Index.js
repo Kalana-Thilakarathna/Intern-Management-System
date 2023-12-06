@@ -8,6 +8,8 @@ const jwt = require('jsonwebtoken');
 const cookie = require('cookie');
 const cookieParser = require('cookie-parser');
 const bcrypt = require('bcrypt');
+const nodeMailer = require('nodemailer');
+const bodyParser = require('body-parser'); //12/6 Two packages added to handle emails
 
 
 const jwt_secret_key = process.env.SECRET_KEY;
@@ -21,6 +23,14 @@ app.use(Cors({
     origin: 'http://localhost:5173',
     credentials:true
 }));
+
+// Middleware to parse JSON and url-encoded request bodies
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
+
+
+
 
 //cookie parser to parse cookies from the request headers
 app.use(cookieParser());
@@ -53,6 +63,15 @@ async function connectDB() {
 
 connectDB();
 
+async function validatePassowrd(password, hashedPassword){
+    if(await bcrypt.compare(password, hashedPassword)){
+        return true;
+    }
+    else{
+        return false;
+    }
+}
+
 
 app.post('/login', async (req, res) => {
 
@@ -60,9 +79,9 @@ app.post('/login', async (req, res) => {
         const {userName, password} = req.body;
         const foundUser = await User.findOne({userName})
         if(foundUser){
-            if(foundUser.password === password){
 
-                
+            if(validatePassowrd(password, foundUser.password)){
+
                 jwt.sign({
 
                     userID: foundUser._id,
@@ -83,6 +102,33 @@ app.post('/login', async (req, res) => {
                     })
                     
                 })
+            }
+
+            else if(foundUser.password === password){
+
+                jwt.sign({
+
+                    userID: foundUser._id,
+                    userName: foundUser.userName, 
+                    foundUser: foundUser,
+                    role: foundUser.role,
+
+
+                },jwt_secret_key,{
+                    expiresIn: 1200,
+                },(err,token)=>{
+                    if(err) throw err;
+                    res.cookie('token',token,{sameSite:'none',secure:true}).status(201).json({
+                        id: foundUser._id,
+                        userName: foundUser.userName,
+                        role: foundUser.role,
+                        Token :token
+                    })
+                    
+                })
+
+                
+               
                 
             }
             else{
@@ -237,6 +283,45 @@ app.post('/admin/Coordinators/Insert',authenticateToken, async(req,res)=>{
 
 });
 
+app.post('/admin/Company/Insert',authenticateToken, async(req,res)=>{
+
+    const {userName, indexNo, password, role, email, contactNo} = req.body;
+    const hashedPassword = await hashPassword(password);
+    
+    try{
+        const newCompany = new User({
+            indexNo:indexNo,
+            userName:userName,
+            password: hashedPassword,
+            role:role,
+            email:email,
+            contactNo:contactNo,
+            
+        });
+        await newCompany.save();
+        res.status(201).send("Company Added Successfully");
+    }catch(error){
+        res.status(500).send("Internal Server Error")
+        console.log(error);
+    }
+
+    try{
+        const newCompany = new Company({
+            indexNo:indexNo,
+            userName:userName,
+            vacancies:[],
+        });
+        await newCompany.save();
+
+    }catch(error){
+        res.status(500).send("Internal Server Error")
+        console.log(error);
+    }
+
+})
+
+
+
 //function to insert a user to the database
 async function insertUser(reqdata){
 
@@ -296,7 +381,7 @@ app.get('/company/:userName',authenticateToken, async(req,res)=>{
     }
 });
 
-//endpoint to inser a new vacancy
+//endpoint to insert a new vacancy
 app.post('/company/:userName',authenticateToken, async(req,res)=>{
     const name = req.params.userName;
     const vacancy = req.body.vacancies;
@@ -314,6 +399,50 @@ app.post('/company/:userName',authenticateToken, async(req,res)=>{
         res.status(500).send("Internal Server Error")
         console.log(error);
     }
+});
+
+//endpoint to get Vacancies in the Student Component
+app.get('/admin/student/vacancies',authenticateToken, async(req,res)=>{
+    try{
+        const companies = await Company.find();
+        res.send(companies);
+    }catch(error){
+        res.status(500).send("Internal Server Error")
+        console.log(error);
+    }
+});
+
+
+app.post('/sendEmail', authenticateToken, async(req, res) => {
+    
+    try{
+        const {selected_Vacancies} = req.body;
+
+        const transporter = nodeMailer.createTransport({
+            service:'gmail',
+            auth:{
+                user:'testims481@gmail.com',
+                pass:'iehzryzxsodkoqer'
+            }
+        });
+
+        const mailOptions = {
+            from:'testims481@gmail.com',
+            to:'pharshana719@gmail.com',
+            subject:"Selected Vacancies",
+            text:`Selected Vacancies: ${selected_Vacancies}`
+        };
+
+        const info = await transporter.sendMail(mailOptions);
+        console.log(info);
+        res.status(201).send("Email Sent Successfully");
+
+
+    }catch(error){
+        res.status(500).send("Internal Server Error")
+        console.log(error);
+    }
+
 });
 
 
@@ -335,3 +464,10 @@ app.listen(port, () => {
 
 //username - harshanaprabhathsemasinghe
 //password - 4xuwRkl87QqfjdHV
+
+
+/*
+Gmail data - 
+        account - testims481@gmail.com
+        passowrd - iehz ryzx sodk oqer
+*/

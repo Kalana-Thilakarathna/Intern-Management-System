@@ -21,7 +21,7 @@ function App() {
             <Route element = {<RequireAuth />}>
               <Route path="/student" element={<Student/>} />
               <Route path="/admin" element={<Admin/>} />
-              <Route path="/company" element={<Company />} />
+              <Route path="/company/:userName" element={<Company />} />
               <Route path="/single_student/:id" element={<SingleStudent/>} />
               <Route path="/single_coordinator/:id" element={<SingleCoordinator/>} />  
               <Route path ="student/company_vacancies/:id" element={<CompanyVacancie/>} />          

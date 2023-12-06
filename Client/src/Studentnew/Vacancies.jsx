@@ -32,12 +32,15 @@ function Vacancies() {
   const [Vacancies, setVacancies] = useState([]);
 
   //12/5 fake api for testin replace with the real one
+
+  //12/5 fetch data from the api
+  async function fetchData() {
+    const response = await axios.get("/admin/student/Vacancies");
+    setVacancies(response.data);
+  }
+
   useEffect(function () {
-    axios;
-    axios
-      .get("https://jsonplaceholder.typicode.com/users")
-      .then((vacancies) => setVacancies(vacancies.data))
-      .catch((err) => console.log(err));
+    fetchData();
   }, []);
 
   return (
@@ -53,10 +56,10 @@ function Vacancies() {
                 <ListGroup>
                   {Vacancies.slice(minpagestate, maxpagestate)?.map(
                     (vacancie) => (
-                      <ListGroup.Item key={vacancie.id}>
+                      <ListGroup.Item key={vacancie.indexNo}>
                         {/*12/5 vacancie name should change to the company name or id as acording fake endpoint thing*/}
-                        <Link to = {`/student/company_vacancies/${vacancie.name}`}> 
-                        {vacancie.name}
+                        <Link to = {`/student/company_vacancies/${vacancie.userName}`}> 
+                        {vacancie.userName}
                         </Link>
                         
                       </ListGroup.Item>
