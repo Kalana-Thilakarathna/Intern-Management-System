@@ -28,9 +28,9 @@ function Loginpage() {
       setAuth({ userName, password, role, token });
 
       if (role === "Student") {
-        navigate("/student");
+        navigate(`/student/${userName}`);
       } else if (role === "Company") {
-        navigate("/company");
+        navigate(`/company/${userName}`);
       } else if (role === "Admin") {
         navigate("/admin");
       } else {

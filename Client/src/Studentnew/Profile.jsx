@@ -1,37 +1,41 @@
-import React, { useState } from 'react';
-import { Container, Form, Button } from 'react-bootstrap';
+import React, { useEffect, useState } from 'react';
+import { Container, Form } from 'react-bootstrap';
 import './student.css';
+import { useParams } from 'react-router-dom';
+import axios from 'axios';
 
 function Profile() {
-  const [file, setFile] = useState(null);
+  const { userName } = useParams();
+  const [studentData, setStudentData] = useState({
+    indexNo: "",
+    userName: "",
+    department: "",
+    batch: "",
+    email: "",
+  });
 
-  // Dummy data, replace this with actual data from another interface
-  const userData = {
-    name: '',
-    email: '',
-    Registration_Number: '',
-    department: '',
-    specializedSubject: '',
-  };
-
-  
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Handle form submission logic here, including the file data (if needed)
-    console.log('Form submitted!', file);
-  };
+  useEffect(() => {
+    axios
+      .get(`/student/${userName}`)
+      .then((response) => {
+        setStudentData(response.data);
+      })
+      .catch((error) => {
+        console.error('Error fetching student data:', error);
+      });
+  }, [userName]);
 
   return (
     <Container className="bg-zinc-50">
-      <Form className="mainF" onSubmit={handleSubmit}>
+      <Form className="mainF">
         <Form.Group className="protext">
           <Form.Label className="procon">Name</Form.Label>
           <Form.Control
             className="probox"
             type="text"
             placeholder=""
-            defaultValue={userData.name}
+            name='userName'
+            value={studentData.userName}
             readOnly
           />
         </Form.Group>
@@ -42,18 +46,20 @@ function Profile() {
             className="probox"
             type="email"
             placeholder=""
-            defaultValue={userData.email}
+            name='email'
+            value={studentData.email}
             readOnly
           />
         </Form.Group>
 
         <Form.Group className="protext">
-          <Form.Label className="procon">Registration Number</Form.Label>
+          <Form.Label className="procon">Index Number</Form.Label>
           <Form.Control
             className="probox"
             type="text"
             placeholder=""
-            defaultValue={userData.Registration_Number}
+            name='indexNo'
+            value={studentData.indexNo}
             readOnly
           />
         </Form.Group>
@@ -64,18 +70,20 @@ function Profile() {
             className="probox"
             type="text"
             placeholder=""
-            defaultValue={userData.department}
+            name='department'
+            value={studentData.department}
             readOnly
           />
         </Form.Group>
 
         <Form.Group className="protext">
-          <Form.Label className="procon">Specialized Subject Area</Form.Label>
+          <Form.Label className="procon">Batch</Form.Label>
           <Form.Control
             className="probox"
             type="text"
             placeholder=""
-            defaultValue={userData.specializedSubject}
+            name='batch'
+            value={studentData.batch}
             readOnly
           />
         </Form.Group>

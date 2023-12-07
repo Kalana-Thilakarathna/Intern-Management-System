@@ -73,6 +73,7 @@ async function validatePassowrd(password, hashedPassword){
 }
 
 
+
 app.post('/login', async (req, res) => {
 
     try{
@@ -377,6 +378,20 @@ app.get('/admin/Students/:id',authenticateToken, async(req,res)=>{
         console.log(error);
     }
 });
+
+//endpoint for student's profile
+app.get('/student/:userName',authenticateToken, async(req,res)=>{
+
+    const name = req.params.userName;
+    try{
+        const student = await User.findOne({userName:name});
+        res.send(student);
+    }catch(error){
+        res.status(500).send("Internal Server Error")
+        console.log(error);
+    }
+});
+
 
 //endpoint to retrive vacancy details data for a company
 app.get('/company/:userName',authenticateToken, async(req,res)=>{
