@@ -38,7 +38,10 @@ function CompanyCv() {
 
   return (
     <div>
-      <Table striped bordered hover>
+      <Card>
+        <Card.Body>
+
+        <Table striped bordered hover>
         <thead>
           <tr>
             <th>NAME</th>
@@ -68,6 +71,10 @@ function CompanyCv() {
           ))}
         </tbody>
       </Table>
+
+        </Card.Body>
+      </Card>
+      
     </div>
   );
 }

@@ -80,31 +80,31 @@ app.post('/login', async (req, res) => {
         const foundUser = await User.findOne({userName})
         if(foundUser){
 
-            if(validatePassowrd(password, foundUser.password)){
+            // if(validatePassowrd(password, foundUser.password)){
 
-                jwt.sign({
+            //     jwt.sign({
 
-                    userID: foundUser._id,
-                    userName: foundUser.userName, 
-                    foundUser: foundUser,
-                    role: foundUser.role,
+            //         userID: foundUser._id,
+            //         userName: foundUser.userName, 
+            //         foundUser: foundUser,
+            //         role: foundUser.role,
 
 
-                },jwt_secret_key,{
-                    expiresIn: 1200,
-                },(err,token)=>{
-                    if(err) throw err;
-                    res.cookie('token',token,{sameSite:'none',secure:true}).status(201).json({
-                        id: foundUser._id,
-                        userName: foundUser.userName,
-                        role: foundUser.role,
-                        Token :token
-                    })
+            //     },jwt_secret_key,{
+            //         expiresIn: 1200,
+            //     },(err,token)=>{
+            //         if(err) throw err;
+            //         res.cookie('token',token,{sameSite:'none',secure:true}).status(201).json({
+            //             id: foundUser._id,
+            //             userName: foundUser.userName,
+            //             role: foundUser.role,
+            //             Token :token
+            //         })
                     
-                })
-            }
+            //     })
+            // }
 
-            else if(foundUser.password === password){
+            if(foundUser.password === password){
 
                 jwt.sign({
 
@@ -224,7 +224,7 @@ app.get ('/admin', authenticateToken, async(req, res) => {
 app.get('/admin/Students',authenticateToken, async(req,res)=>{
 
     try{
-        const students = await User.find({role:"Student"},'userName intern_Status');
+        const students = await User.find({role:"Student"},'userName email');
         res.send(students);
     }catch(error){
         res.status(500).send("Internal Server Error")
@@ -271,7 +271,7 @@ app.get('/admin/Coordinators',authenticateToken, async(req,res)=>{
 app.post('/admin/Coordinators/Insert',authenticateToken, async(req,res)=>{
 
     const newCoordinatorData = req.body;
-    console.log(newCoordinatorData+"226");
+    
 
     const result = await insertUser(newCoordinatorData);
     if(result){
@@ -283,6 +283,20 @@ app.post('/admin/Coordinators/Insert',authenticateToken, async(req,res)=>{
 
 });
 
+
+//admin endpoint to get data for companies
+app.get('/admin/Companies',authenticateToken, async(req,res)=>{
+
+    try{
+        const companies = await Company.find({});
+        res.send(companies);
+    }catch(error){
+        res.status(500).send("Internal Server Error")
+        console.log(error);
+    }
+});
+
+//admin endpoint to insert a new company
 app.post('/admin/Company/Insert',authenticateToken, async(req,res)=>{
 
     const {userName, indexNo, password, role, email, contactNo} = req.body;
