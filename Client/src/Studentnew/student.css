@@ -25,10 +25,11 @@
   
   .submit_red:hover {
     transition: all;
-    background-color: red;
+    background-color:#800000;
     color: #f7d738;
     transition: background-color 0.3s ease;
   }
+<<<<<<< Updated upstream:Client/src/Studentnew/student.css
 
   .checkbox-label input[type="checkbox"] {
     /* Adjust the width and height as needed */
@@ -37,3 +38,23 @@
     /* You can also use other properties like margin or padding */
 
   }
+=======
+  .protext{
+    height: 90px;
+    
+  
+  }
+  .procon{
+    margin-left: 5px;
+    
+    
+    
+  }
+  .probox{
+    max-width: 1000px;
+    margin-left: 5px;
+    border-color: #800000 !important;
+    
+  }
+  
+>>>>>>> Stashed changes:Client/src/Student/student.css
