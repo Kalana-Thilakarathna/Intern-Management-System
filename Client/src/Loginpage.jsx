@@ -30,11 +30,7 @@ function Loginpage() {
       if (role === "Student") {
         navigate("/student");
       } else if (role === "Company") {
-<<<<<<< Updated upstream
-        navigate(`/company/${userName}`);
-=======
         navigate("/company");
->>>>>>> Stashed changes
       } else if (role === "Admin") {
         navigate("/admin");
       } else {

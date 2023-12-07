@@ -29,16 +29,6 @@
     color: #f7d738;
     transition: background-color 0.3s ease;
   }
-<<<<<<< Updated upstream:Client/src/Studentnew/student.css
-
-  .checkbox-label input[type="checkbox"] {
-    /* Adjust the width and height as needed */
-    width: 20px;
-    height: 20px;
-    /* You can also use other properties like margin or padding */
-
-  }
-=======
   .protext{
     height: 90px;
     
@@ -57,4 +47,3 @@
     
   }
   
->>>>>>> Stashed changes:Client/src/Student/student.css
