@@ -9,11 +9,24 @@ import {
   Col,
 } from "react-bootstrap";
 import "./student.css";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import CheckboxForm from "./Vacancie/CheckboxForm";
 import { Form, FormGroup } from "react-bootstrap";
 
 function Vacancies() {
+  const {userName} = useParams();
+
+  const [studentData, setStudentData] = useState();
+  useEffect(() => {
+    axios
+      .get(`/student/${userName}`)
+      .then((response) => {
+        setStudentData(response.data);
+      })
+      .catch((error) => {
+        console.error('Error fetching student data:', error);
+      });
+  }, [userName]);
   // const [TotalVacancies, setTotalVacancies] = useState([
 
   // ]);
@@ -52,12 +65,13 @@ function Vacancies() {
         existingCompany[1].push(checkbox.label);
       } else {
         // If the company doesn't exist, create a new entry with the company name and the selected vacancy
-        result.push([checkbox.companyName, [checkbox.label]]);
+        result.push([checkbox.companyName ,[checkbox.label]]);
+        
       }
   
       return result;
     }, []);
-
+    outputArray.push(["IndexNo", [studentData.indexNo]]);
     console.log("Output Array:", outputArray);
     alert("Submission Complete")
   }

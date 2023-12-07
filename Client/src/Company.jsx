@@ -89,7 +89,7 @@ function Company() {
     fetchData();
   }, []);
 
-  const [key, setKey] = useState("Profile");
+  const [key, setKey] = useState("Posts");
 
   return (
     <div>
