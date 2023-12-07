@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Card from "react-bootstrap/Card";
@@ -6,6 +6,7 @@ import Table from "react-bootstrap/Table";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import "./CompanyAdmin.css";
+import axios from "axios";
 
 const initialData = [
   { Companyname: "Virtusa", Total_interns: 19, Number_of_vacancies: "2" },
@@ -18,10 +19,36 @@ function CompanyAdmin() {
   const [pendingCompanies, setPendingCompanies] = useState(initialData);
   const [selectedRows, setSelectedRows] = useState([]);
   const [newCompany, setNewCompany] = useState({
-    Companyname: "",
-    Total_interns: 0,
-    Number_of_vacancies: "",
+    indexNo: "",
+    userName: "",
+    password: "",
+    role:"Company",
+    email: "",
+    contactNo: "",
   });
+
+  // function to fetch company data
+  const fetchCompanyData = async () => {
+    try {
+      const response = await axios.get('/admin/Companies');
+      setMainTableData(response.data);
+    }
+    catch (err) {
+      console.log(err);
+    }
+  }
+  
+  useEffect(function () {
+
+    fetchCompanyData();
+
+
+  },[]);
+  
+
+
+
+
 
   const handleRowClick = (index) => {
     const row = pendingCompanies[index];
@@ -55,6 +82,33 @@ function CompanyAdmin() {
     setNewCompany({ Companyname: "", Total_interns: 0, Number_of_vacancies: "" });
   };
 
+  //function to set values to null after submitting
+  function  setNull() {
+    setNewCompany({
+      indexNo: "",
+      userName: "",
+      password: "",
+      role:"Company",
+      email: "",
+      contactNo: "",
+    });
+  }
+
+  // function to handle the submit button click
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await axios.post('/admin/Company/Insert', newCompany);
+      setNull();
+     fetchCompanyData();
+      alert("Company Added Successfully")
+
+    }
+    catch (err) {
+      console.log(err);
+    }
+  };
+
   return (
     <Row>
       <Col>
@@ -64,23 +118,18 @@ function CompanyAdmin() {
             <Table striped bordered hover>
               <thead>
                 <tr>
+                  <th>COMPANY ID</th>
                   <th>COMPANY NAME</th>
-                  <th>TOTAL INTERNS RECRUITED</th>
                   <th>NUMBER OF VACANCIES AVAILABLE</th>
-                  <th>Action</th>
+                  
                 </tr>
               </thead>
               <tbody>
-                {mainTableData.map((val, index) => (
-                  <tr key={index}>
-                    <td>{val.Companyname}</td>
-                    <td>{val.Total_interns}</td>
-                    <td>{val.Number_of_vacancies}</td>
-                    <td>
-                      <button className="B10" onClick={() => handleRemoveButtonClick(index)}>
-                        Remove
-                      </button>
-                    </td>
+                {mainTableData.map((company) => (
+                  <tr key={company.indexNo}>
+                    <td>{company.indexNo}</td>
+                    <td>{company.userName}</td>
+                    <td>{company.vacancies.length}</td>
                   </tr>
                 ))}
               </tbody>
@@ -92,48 +141,52 @@ function CompanyAdmin() {
         <Card className="AddComapnyCard">
           <Card.Header className="bg-red-800 textincard text-white  ">Add Company</Card.Header>
           <Card.Body>
-            <Form>
+            <Form onSubmit={handleSubmit}>
             <Form.Group controlId="forName">
-                <Form.Label>Company Name</Form.Label>
+                <Form.Label>Company ID</Form.Label>
                 <Form.Control
                   className="Textarea"
                   type="text"
-                  placeholder="ATLAS"
-                  name="CompanyName"
-                  value={newCompany.CompanyEmail}
+                  placeholder="Company ID here"
+                  name="indexNo"
+                  value={newCompany.indexNo}
+                  onChange={handleInputChange}
                   
                 />
               </Form.Group>
               <Form.Group controlId="formID">
-                <Form.Label className=" label ">Company ID</Form.Label>
+                <Form.Label className=" label ">Company Name</Form.Label>
                 <Form.Control
                 className="Textarea"
                   type="text"
-                  placeholder="C53"
-                  name="CompanyID"
-                  value={newCompany.CompanyID}
+                  placeholder="Company name here"
+                  name="userName"
+                  value={newCompany.userName}
+                  onChange={handleInputChange}
                   
                 />
               </Form.Group>
               <Form.Group controlId="formEmail">
-                <Form.Label className=" label ">Email</Form.Label>
+                <Form.Label className=" label ">Password</Form.Label>
                 <Form.Control
                 className="Textarea"
-                  type="text"
-                  placeholder="lasanthachulabhaya@gmail.com"
-                  name="CompanyEnmail"
-                  value={newCompany.CompanyEmail}
+                  type="password"
+                  placeholder="Your password here"
+                  name="password"
+                  value={newCompany.password}
+                  onChange={handleInputChange}
                   
                 />
               </Form.Group>
               <Form.Group controlId="forAddress">
-                <Form.Label className=" label ">Address</Form.Label>
+                <Form.Label className=" label ">email</Form.Label>
                 <Form.Control
                 className="Textarea"
                   type="text"
-                  placeholder="221B Baker Street London"
-                  name="CompanyAddress"
-                  value={newCompany.CompanyAddress}
+                  placeholder="Your email here"
+                  name="email"
+                  value={newCompany.email}
+                  onChange={handleInputChange}
                   
                 />
               </Form.Group>
@@ -142,9 +195,10 @@ function CompanyAdmin() {
                 <Form.Control
                 className="Textarea"
                   type="text"
-                  placeholder="0000000000"
-                  name="Contact_number"
-                  value={newCompany.Contact_number}
+                  placeholder="Your contact number here"
+                  name="contactNo"
+                  value={newCompany.contactNo}
+                  onChange={handleInputChange}
                   
                 />
               </Form.Group>

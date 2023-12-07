@@ -5,7 +5,11 @@ import { Col, Row } from "react-bootstrap";
 import "./Coo_ad.css";
 import axios from "axios";
 
-function C_form() {
+function C_form({handleFetchCoordinatorData}) {
+
+  
+
+
   const [formData, setFormData] = useState({
     indexNo: "",
     userName: "",
@@ -30,6 +34,8 @@ function C_form() {
     try{
       const response = await axios.post('/admin/Coordinators/Insert',formData);
       console.log(response.data);
+      alert("Coordinator Added Successfully");
+      handleFetchCoordinatorData();
       
     }catch(error){
       console.log(error);

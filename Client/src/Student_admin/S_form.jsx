@@ -5,7 +5,13 @@ import { Col, Row } from "react-bootstrap";
 import "./studentad.css";
 import axios from "axios";
 
-function S_form() {
+function S_form({executeParentFunction}) {
+
+ 
+
+  
+
+
   const [formData, setFormData] = useState({
     indexNo: "",
     userName: "",
@@ -31,6 +37,8 @@ function S_form() {
       const response = await axios.post("/admin/Students/Insert", formData);
       console.log(response.data);
       alert("Student is successfully added")
+      executeParentFunction();
+
     } catch (err) {
       console.log(err);
     }

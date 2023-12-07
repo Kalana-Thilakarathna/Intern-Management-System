@@ -18,6 +18,7 @@ import CompanyAdmin from "./Company_admin/CompanyAdmin.jsx";
 
 
 
+
 function Admin() {
   const navigate = useNavigate();
   function HandleLogout() {
@@ -69,12 +70,15 @@ const [studentData, setStudentData] = React.useState("");
       
     }, [coordinatorsData]);
 
+ 
+
   //12/2 - Fetch data from the database to the Student TAB
   const fetchStudentData = async () => {
     try{
       const response = await axios.get("/admin/Students");
 
       setStudentData(response.data);
+      
       
     }
     catch(error){
@@ -93,6 +97,9 @@ const [studentData, setStudentData] = React.useState("");
       console.log(error);
     }
   }
+
+  //12/7 fetch data from the database to the company TAB
+  
   
 
   
@@ -113,6 +120,7 @@ const [studentData, setStudentData] = React.useState("");
       case "Coordinators":
         fetchCoordinatorData();
         break;
+      
       
     }
 
@@ -341,14 +349,17 @@ const [studentData, setStudentData] = React.useState("");
             </Tab>
 
             <Tab eventKey="Students" title={<span style={{ color: '#800000', fontWeight: 'bold' }}>Students</span>} className="bg-w" >
-              <Student studentData={studentData} />
+              
+                <Student studentData={studentData} fetchStudentData={fetchStudentData} />
+              
+              
             </Tab>
             <Tab eventKey="Companies" title={<span style={{ color: '#800000', fontWeight: 'bold' }}>Companies</span>} className="bg-w">
-              <CompanyAdmin/>
+              <CompanyAdmin />
             </Tab>
             <Tab eventKey="Coordinators" title={<span style={{ color: '#800000', fontWeight: 'bold' }}>Coordinators</span>} className="bg-w">
-              <Coordinator coordinatorsData={coordinatorsData}/>
-            </Tab>
+              <Coordinator coordinatorsData={coordinatorsData} fetchCoordinatorData = {fetchCoordinatorData}/>
+            </Tab> 
           </Tabs>
         </Container>
       </div>

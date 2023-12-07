@@ -8,6 +8,7 @@ import { Table } from "react-bootstrap";
 import "./studentad.css";
 
 function Student_list({ studentData }) {
+  
   let maxPage = 10;
   let minPage = 0;
   const [students, setStudet] = useState([]);
@@ -38,7 +39,7 @@ function Student_list({ studentData }) {
               <thead>
                 <tr className="custom-row">
                   <th>Name</th>
-                  <th>State</th>
+                  <th>email</th>
                 </tr>
               </thead>
               <tbody>
@@ -52,7 +53,7 @@ function Student_list({ studentData }) {
                             {student.userName}
                           </Link>
                         </td>
-                        <td>{student.intern_Status}</td>
+                        <td>{student.email}</td>
                       </tr>
                     ))}
               </tbody>

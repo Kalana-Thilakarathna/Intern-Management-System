@@ -6,7 +6,14 @@ import Card from "react-bootstrap/Card";
 import C_form from './C_form';
 import C_list from './C_list';
 
-function Coodinator({coordinatorsData}) {
+function Coodinator({coordinatorsData, fetchCoordinatorData}) {
+
+
+  //function to execute fetchCoordinatorData() function from admin.jsx
+  const handleFetchCoordinatorData = () => {
+    fetchCoordinatorData()
+    console.log("executed coordinator.jsx")
+  }
   
   
   return (
@@ -25,7 +32,7 @@ function Coodinator({coordinatorsData}) {
             <Card.Header className='bg-red-800 text-white font-bold'>Coordinator Adding</Card.Header>
             <Card.Body>
               <Card.Text>
-                <C_form />
+                <C_form handleFetchCoordinatorData = {handleFetchCoordinatorData} />
               </Card.Text>
             </Card.Body>
           </Card>
