@@ -297,7 +297,7 @@ app.post('/admin/Company/Insert',authenticateToken, async(req,res)=>{
         const newCompany = new User({
             indexNo:indexNo,
             userName:userName,
-            password: hashedPassword,
+            password: password,
             role:role,
             email:email,
             contactNo:contactNo,
@@ -340,7 +340,7 @@ async function insertUser(reqdata){
         const newUser = new User({
             indexNo:indexNo,
             userName:userName,
-            password: hashedPassword,
+            password: password,
             role:role,
             department:department,
             batch:batch,

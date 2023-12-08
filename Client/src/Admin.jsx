@@ -44,14 +44,14 @@ const [studentData, setStudentData] = React.useState("");
       setegt_Student_count(response.data.etCount);
       setict_Student_count(response.data.ictCount);
       setbst_Student_count(response.data.bstCount);
-      setaccepted_letter_count(response.data.sentLetters);
-      setpending_letter_count(response.data.pendingLetters);
+      //setaccepted_letter_count(response.data.sentLetters);
+     // setpending_letter_count(response.data.pendingLetters);
       setID(response.data.userID);
       setName(response.data.userName);
-      setactive_internship_count(response.data.active_internships)
-      setpending_internship_count(response.data.pending_internships)
-      setrejected_internship_count(response.data.rejected_interships)
-      setwithout_internship_count(response.data.without_interships)
+      //setactive_internship_count(response.data.active_internships)
+      //setpending_internship_count(response.data.pending_internships)
+      //setrejected_internship_count(response.data.rejected_interships)
+      //setwithout_internship_count(response.data.without_interships)
 
 
       
@@ -155,20 +155,20 @@ const [studentData, setStudentData] = React.useState("");
   const [egt_student_count, setegt_Student_count] = React.useState("20");
   const [ict_student_count, setict_Student_count] = React.useState("30");
   const [bst_student_count, setbst_Student_count] = React.useState("60");
-  const [internship_count, setinternship_count] = React.useState("50");
+  const [internship_count, setinternship_count] = React.useState("0");
   const [offered_internship_count, setoffered_internship_count] =
-    React.useState("90");
+    React.useState("0");
   const [accepted_letter_count, setaccepted_letter_count] =
-    React.useState("100");
-  const [pending_letter_count, setpending_letter_count] = React.useState("345");
+    React.useState("0");
+  const [pending_letter_count, setpending_letter_count] = React.useState("0");
   const [active_internship_count, setactive_internship_count] =
-    React.useState("56");
+    React.useState("0");
   const [pending_internship_count, setpending_internship_count] =
-    React.useState("34");
+    React.useState("0");
   const [rejected_internship_count, setrejected_internship_count] =
-    React.useState("65");
+    React.useState("0");
   const [without_internship_count, setwithout_internship_count] =
-    React.useState("12");
+    React.useState("0");
 
   return (
     <div>
