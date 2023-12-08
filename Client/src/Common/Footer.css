@@ -1,8 +1,7 @@
 .CF{
     background-color: #800000;
     height: 8.5rem;
-    position:relatives;
-    
+    position:relative;
     width:100%;
 
 }
@@ -16,7 +15,7 @@
 .social-icons{
     display: flex;
     align-items: center;
-    padding-left: 890px;
+    padding-left: 1080px;
     color: #ffffff;
     padding-top: 8px;
     transition: color 0.3s ease;

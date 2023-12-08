@@ -16,6 +16,11 @@ const CompanyVacancies = () => {
   //to set the company's vacancies
   const [companyVacancies, setCompanyVacancies] = useState([]);
 
+  const [companyData, setCompanyData] = useState({
+    name: "",
+    vacancies: [],
+  });
+
   //12/6 this is a fake api
   useEffect(() => {
     const fetchData = async () => {
@@ -24,6 +29,14 @@ const CompanyVacancies = () => {
           "https://jsonplaceholder.typicode.com/users"
         );
         setCompanyVacancies(response.data);
+
+        const companyDetails = response.data;
+
+        setCompanyData({
+          name: companyDetails.name,
+          vacancies: companyDetails.vacancies, // Assuming the API returns vacancies for each company
+        });
+
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -41,7 +54,8 @@ const CompanyVacancies = () => {
               {id} {/*company name */}
             </Card.Header>
             <Card.Body>
-              <CheckboxForm Vacancies={companyVacancies} />{" "}
+              <CheckboxForm Vacancies={companyData.vacancies} />{" "}  
+              
               {/* 12/6 pass the companyvacancies to the checkboxForm */}
             </Card.Body>
           </Card>

@@ -19,7 +19,7 @@ function App() {
      <Routes>
             <Route path="/" element={<Loginpage/>} />
             <Route element = {<RequireAuth />}>
-              <Route path="/student" element={<Student/>} />
+              <Route path="/student/:userName" element={<Student/>} />
               <Route path="/admin" element={<Admin/>} />
               <Route path="/company/:userName" element={<Company />} />
               <Route path="/single_student/:id" element={<SingleStudent/>} />

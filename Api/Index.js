@@ -73,6 +73,7 @@ async function validatePassowrd(password, hashedPassword){
 }
 
 
+
 app.post('/login', async (req, res) => {
 
     try{
@@ -199,6 +200,7 @@ app.get ('/admin', authenticateToken, async(req, res) => {
 app.get('/admin/Students',authenticateToken, async(req,res)=>{
 
     try{
+        
         const students = await User.find({role:"Student"},'userName email');
         res.send(students);
     }catch(error){
@@ -258,6 +260,20 @@ app.post('/admin/Coordinators/Insert',authenticateToken, async(req,res)=>{
 
 });
 
+
+//admin endpoint to get data for companies
+app.get('/admin/Companies',authenticateToken, async(req,res)=>{
+
+    try{
+        const companies = await Company.find({});
+        res.send(companies);
+    }catch(error){
+        res.status(500).send("Internal Server Error")
+        console.log(error);
+    }
+});
+
+//admin endpoint to insert a new company
 
 //admin endpoint to get data for companies
 app.get('/admin/Companies',authenticateToken, async(req,res)=>{
@@ -353,6 +369,20 @@ app.get('/admin/Students/:id',authenticateToken, async(req,res)=>{
     }
 });
 
+//endpoint for student's profile
+app.get('/student/:userName',authenticateToken, async(req,res)=>{
+
+    const name = req.params.userName;
+    try{
+        const student = await User.findOne({userName:name});
+        res.send(student);
+    }catch(error){
+        res.status(500).send("Internal Server Error")
+        console.log(error);
+    }
+});
+
+
 //endpoint to retrive vacancy details data for a company
 app.get('/company/:userName',authenticateToken, async(req,res)=>{
     const name = req.params.userName;
@@ -405,7 +435,8 @@ app.get('/admin/student/vacancies',authenticateToken, async(req,res)=>{
 app.post('/sendEmail', authenticateToken, async(req, res) => {
     
     try{
-        const {selected_Vacancies} = req.body;
+        const selected_Vacancies = req.body.selected_Vacancies;
+        console.log(selected_Vacancies[2][1]);
 
         const transporter = nodeMailer.createTransport({
             service:'gmail',
