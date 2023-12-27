@@ -9,11 +9,12 @@ import ListGroup from "react-bootstrap/ListGroup";
 import "./SingleStudent.css";
 import Form from "react-bootstrap/Form";
 
+
 function SingleStudent() {
   const { id } = useParams();
   const [students, setStudets] = useState([]);
   //const student = students.find((student) => student.name === id);
-  const [wishes,setWishes] = useState([]);
+  const [vacancies,setVacancies] = useState([]);
 
   //12/3 Fetching data from the server for a signle student
   useEffect( () => {
@@ -31,6 +32,13 @@ function SingleStudent() {
 
   },[id])
   
+  //12/27 set response to vacancies
+  useEffect(() => {
+    axios
+      .get("https://jsonplaceholder.typicode.com/users")
+      .then((response) => setVacancies(response.data))
+      .then((error) => console.log(error))
+  },[])
 
   
 
@@ -188,15 +196,15 @@ function SingleStudent() {
               </Col>
               <Col>
                 <Card  style={{ height: '38rem' }}>
-                  <Card.Header>Wish List</Card.Header>
+                  <Card.Header className = "font-bold" >Applied Companies</Card.Header>
                   <Card.Body>
-                    <ListGroup>
-                      <ListGroup.Item>Cras justo odio</ListGroup.Item>
-                      <ListGroup.Item>Dapibus ac facilisis in</ListGroup.Item>
-                      <ListGroup.Item>Morbi leo risus</ListGroup.Item>
-                      <ListGroup.Item>Porta ac consectetur ac</ListGroup.Item>
-                      <ListGroup.Item>Vestibulum at eros</ListGroup.Item>
-                    </ListGroup>
+                    
+                      {vacancies.map((vacancie) => (
+                        <ListGroup as="ol" key={vacancie.index}>
+                          <ListGroup.Item as = "li">{vacancie.name}</ListGroup.Item>
+                        </ListGroup>
+                      ))}                      
+                    
                   </Card.Body>
                 </Card>
               </Col>

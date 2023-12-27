@@ -63,24 +63,30 @@ function Vacancies() {
   const handleSubmit = () => {
     const outputArray = selectedCheckboxes.reduce((result, checkbox) => {
       // Check if the company name already exists in the result array
-      const existingCompany = result.find((item) => item[0] === checkbox.companyName);
+      const existingCompany = result.find((item) => item.companyName === checkbox.companyName);
   
       if (existingCompany) {
         // If the company exists, add the vacancy to its array
-        existingCompany[1].push(checkbox.label);
+        existingCompany.vacancies.push(checkbox.label);
       } else {
         // If the company doesn't exist, create a new entry with the company name and the selected vacancy
-        result.push([checkbox.companyName ,[checkbox.label]]);
-        
+        result.push({
+          companyName: checkbox.companyName,
+          vacancies: [checkbox.label]
+        });
       }
   
       return result;
     }, []);
-    outputArray.push(["IndexNo", [studentData.indexNo]]);
+  
+    // Add an additional entry for IndexNo
+    outputArray.push({ IndexNo: studentData.indexNo });
+  
     console.log("Output Array:", outputArray);
     submitButton(outputArray);
-    alert("Submission Complete")
-  }
+    alert("Submission Complete");
+  };
+  
 
 
 
