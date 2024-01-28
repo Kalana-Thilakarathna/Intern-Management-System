@@ -3,6 +3,9 @@
     height: 8.5rem;
     position:relative;
     width:100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
 }
 
@@ -13,11 +16,8 @@
     margin: 5px 0;
 }
 .social-icons{
-    display: flex;
-    align-items: center;
-    padding-left: 1080px;
     color: #ffffff;
-    padding-top: 8px;
+    padding-top: 10px;
     transition: color 0.3s ease;
     
 }
@@ -26,5 +26,9 @@
     transition: color 0.3s ease;
   }
 
+a:hover{
+    color: #ffe771;
+    transition: .5s;
+}
 
   

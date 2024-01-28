@@ -12,15 +12,26 @@
     background-color: ;
   }
   
-  
+  .formst{
+    padding-bottom: 20px;
+  }
+  .mainbody{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+  }
   
   .header_line{
     background-color: #800000;
     height: 2.5rem;
   }
+
+
   .uni-logo{
-    width: 7.25rem;
+    width: 10rem;
     height:auto;
+    border-radius: 10px;
   }
   .header_title,.header_subtitle{
     font-size: 1.5rem;
