@@ -24,6 +24,15 @@ We have exciting plans for future updates to enhance the Intern Management Syste
 - Media hosting capabilities
 - And many more!
 
+## ScreenShots
+![image](https://github.com/Kalana-Thilakarathna/Intern-Management-System/assets/93968473/8b40030d-4331-4d4b-a637-e4f6f18a852c)
+![image](https://github.com/Kalana-Thilakarathna/Intern-Management-System/assets/93968473/221645ed-2dab-4796-abaa-47eeacf22d84)
+![image](https://github.com/Kalana-Thilakarathna/Intern-Management-System/assets/93968473/0bcb6017-0897-40ea-b452-3feadb8138e5)
+
+![image](https://github.com/Kalana-Thilakarathna/Intern-Management-System/assets/93968473/4ab33ee7-c65e-4591-8305-fef47f67569e)
+![image](https://github.com/Kalana-Thilakarathna/Intern-Management-System/assets/93968473/beaddd08-741c-4394-95ee-dd132b986dfb)
+
+
 ## Main Developers
 Meet the talented individuals behind the Intern Management System:
 - Kalana Thilakrathna
@@ -45,14 +54,6 @@ For detailed setup instructions and system requirements, refer to the documentat
 
 ## Contributions
 We welcome contributions from the community! If you have ideas for improvements or want to report issues, please open an issue or submit a pull request.
-
-##ScreenShots
-![image](https://github.com/Kalana-Thilakarathna/Intern-Management-System/assets/93968473/8b40030d-4331-4d4b-a637-e4f6f18a852c)
-![image](https://github.com/Kalana-Thilakarathna/Intern-Management-System/assets/93968473/221645ed-2dab-4796-abaa-47eeacf22d84)
-![image](https://github.com/Kalana-Thilakarathna/Intern-Management-System/assets/93968473/0bcb6017-0897-40ea-b452-3feadb8138e5)
-![image](https://github.com/Kalana-Thilakarathna/Intern-Management-System/assets/93968473/beaddd08-741c-4394-95ee-dd132b986dfb)
-![image](https://github.com/Kalana-Thilakarathna/Intern-Management-System/assets/93968473/4ab33ee7-c65e-4591-8305-fef47f67569e)
-
 
 ## License
 This project is licensed under the [MIT License](LICENSE.md).
