@@ -35,7 +35,7 @@ We have exciting plans for future updates to enhance the Intern Management Syste
 
 ## Main Developers
 Meet the talented individuals behind the Intern Management System:
-- Kalana Thilakrathna
+- Kalana Thilakarathna
 - Harshana Semasinghe
 - Lasantha Chulabhaya
 - Kavindya Jayathilaka
